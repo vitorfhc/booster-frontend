@@ -7,8 +7,8 @@
       q-checkbox(v-model="collab.status") status
       p SECTORS:
       q-input(
-        v-for="sector in collab.sectors"
-        :key="`${sector.name}-${Math.random()}`"
+        v-for="[index, sector] in collab.sectors.entries()"
+        :key="index"
         v-model="sector.name"
         filled
       ) sector name

@@ -8,12 +8,16 @@
           th birth
           th salary
           th status
+          th created at
+          th updated at
           th sectors
         tr(v-for="collab in collabs")
           td {{ collab.name }}
           td {{ collab.birth }}
           td {{ collab.salary }}
           td {{ collab.status }}
+          td {{ collab.metadata.created_at }}
+          td {{ collab.metadata.updated_at }}
           td
             span(v-for="sector in collab.sectors")
               | {{ sector.name + ', '}}
