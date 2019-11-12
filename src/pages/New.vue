@@ -6,13 +6,16 @@
       q-input(v-model="collab.salary" filled) salary
       q-checkbox(v-model="collab.status") status
       p SECTORS:
-      q-input(
+      div(
         v-for="[index, sector] in collab.sectors.entries()"
         :key="index"
-        v-model="sector.name"
-        filled
-      ) sector name
-      q-btn(@click="addSector") +
+      ).flex
+        q-input(
+          v-model="sector.name"
+          filled
+        ) sector name
+        q-btn(@click="collab.sectors.splice(index, 1)") delete
+      q-btn(@click="addSector" color="positive") Add sector
       div.actions.flex
         q-btn(@click="$router.push('/')" flat) Go back
         q-btn(@click="send" color="positive") Save
@@ -40,9 +43,7 @@ export default {
         birth: '',
         salary: 0,
         status: false,
-        sectors: [
-          { name: '' },
-        ],
+        sectors: [],
       },
     };
   },
