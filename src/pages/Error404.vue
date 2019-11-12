@@ -1,4 +1,6 @@
 <template lang="pug">
+  q-page
+    | 404 not found
 </template>
 
 <script>
